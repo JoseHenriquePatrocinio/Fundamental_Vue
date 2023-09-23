@@ -1,9 +1,14 @@
 <template>
-  <input type="text" />
+  <input type="text" v-model="inputValue" />
 </template>
 
 <script>
 export default {
-    name:'InputText'
+  name: 'InputText',
+  data() {
+    return {
+      inputValue: ''
+    }
+  }
 }
 </script>
