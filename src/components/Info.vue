@@ -9,6 +9,9 @@
       <li>CSS</li>
       <li>C++</li>
     </ul>
+    <div>
+      <button @click="showEmail">{{textoBotao}}</button>
+    </div>
     <p v-show="mostrar_email">Mande uma mensagem para: {{ email }}</p>
     <p>Para acessar meu portfólio <a v-bind:href="meu_link" target="_blank">basta clicar aqui </a></p>
     <Picture></Picture>
@@ -25,9 +28,20 @@ export default {
   data() {
     return {
       esta_trabalhando: false,
-      mostrar_email: true,
+      mostrar_email: false,
       email: "henriquepatrocinio98@gmail.com",
-      meu_link: "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+      meu_link: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+      textoBotao:"Mostrar e-mail"
+    }
+  },
+  methods:{
+    showEmail(){
+      this.mostrar_email = !this.mostrar_email
+      if(!this.mostrar_email){
+        this.textoBotao = "Mostrar e-mail"
+      }else{
+        this.textoBotao = "Esconder e-mail"
+      }
     }
   }
 };
