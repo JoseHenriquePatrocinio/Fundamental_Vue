@@ -1,12 +1,12 @@
 <template>
   <div>
     <h2>Meu Formulário</h2>
-    <form action="">
+    <form action="" @submit="enviarForm($event)">
       <div>
-        <InputText v-model="dinamico" />
+        <input type="text" v-model="name">
       </div>
       <div>
-        <InputText v-model="dinamico" />
+        <input type="text" v-model="email">
       </div>
       <div>
         <Submit />
@@ -30,10 +30,23 @@ export default {
   data() {
     return {
       dinamico: "",
+      name: "",
+      email: ""
     }
   },
   methods: {
+    enviarForm(e) {
+      e.preventDefault();
 
+      const name = this.name;
+      const email = this.email;
+
+      alert("Form Enviado");
+      console.log("Nome: " + name);
+      console.log("Email: " + email)
+
+      //realizar ação CRUD
+    }
   }
 };
 </script>
