@@ -1,5 +1,6 @@
 <template>
   <div>
+    <p> {{ email }}</p>
     <p v-if="esta_trabalhando">Estou trabalhando no momento.</p>
     <p v-else>Estou em busca de novas oportunidades</p>
     <p>Utilizo as seguintes tecnologias para backend:</p>
@@ -11,7 +12,7 @@
       <li v-for="technology in frontendTech" v-bind:key="technology.id">{{ technology.lang }}</li>
     </ul>
     <div>
-      <button @click="showEmail">{{textoBotao}}</button>
+      <button @click="showEmail">{{ textoBotao }}</button>
     </div>
     <p v-show="mostrar_email">Mande uma mensagem para: {{ email }}</p>
     <p class="teste">Para acessar meu portfólio <a v-bind:href="meu_link" target="_blank">basta clicar aqui </a></p>
@@ -26,23 +27,25 @@ export default {
   components: {
     Picture
   },
+  props: {
+    email: String
+  },
   data() {
     return {
       esta_trabalhando: false,
       mostrar_email: false,
-      email: "henriquepatrocinio98@gmail.com",
       meu_link: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
-      textoBotao:"Mostrar e-mail",
-      backendTech: ['Javascript','Python','C#','C++'],
-      frontendTech:[{id:1,lang:'Vue'},{id:2,lang:'HTML'},{id:3,lang:'CSS'}]
+      textoBotao: "Mostrar e-mail",
+      backendTech: ['Javascript', 'Python', 'C#', 'C++'],
+      frontendTech: [{ id: 1, lang: 'Vue' }, { id: 2, lang: 'HTML' }, { id: 3, lang: 'CSS' }]
     }
   },
-  methods:{
-    showEmail(){
+  methods: {
+    showEmail() {
       this.mostrar_email = !this.mostrar_email
-      if(!this.mostrar_email){
+      if (!this.mostrar_email) {
         this.textoBotao = "Mostrar e-mail"
-      }else{
+      } else {
         this.textoBotao = "Esconder e-mail"
       }
     }
@@ -51,7 +54,7 @@ export default {
 </script>
 
 <style>
-.paragrafo_pai{
+.paragrafo_pai {
   color: aquamarine;
 }
 </style>
