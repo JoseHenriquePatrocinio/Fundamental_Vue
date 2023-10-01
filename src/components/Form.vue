@@ -10,6 +10,7 @@
       </div>
       <div>
         <Submit />
+        <InputText />
       </div>
     </form>
     <p>Você escreveu: {{ dinamico }}</p>
